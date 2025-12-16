@@ -1,5 +1,3 @@
-
-import React from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import SoluionSection from '@/components/home/SolutionSection';
 import OurService from '@/components/home/OurService';
@@ -9,7 +7,7 @@ import JoinUsSection from '@/components/home/JoinUsSection';
 
 export default function Home() {
   return (
-    <main className="min-h-screen"> 
+    <main className="min-h-screen overflow-hidden"> 
       <HeroSection />
       <SoluionSection />
       <OurService />

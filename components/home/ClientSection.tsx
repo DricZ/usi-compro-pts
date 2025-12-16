@@ -1,7 +1,6 @@
-// ClientSection.tsx (atau .jsx)
 
-import React from 'react'
 import ClientLogos from './ClientLogos'
+import { Button } from '../ui/button'
 
 const ClientSection = () => {
   return (
@@ -19,9 +18,9 @@ const ClientSection = () => {
             <p className="mb-6 text-gray-600">
               Driving success together with integrity and commitment.
             </p>
-            <button className="py-3 px-8 bg-[#d73f38] text-white font-bold rounded-md transition-colors hover:bg-[#a9322c]">
-              See more...
-            </button>
+            <Button className="py-3 px-8 bg-[#d73f38] text-white font-bold rounded-md transition-colors hover:bg-[#a9322c]">
+                See more...
+            </Button>
         </div>
 
       </div>

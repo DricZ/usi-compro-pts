@@ -1,5 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
+import { Button } from '../ui/button';
+import Link from 'next/link';
 
 const JoinUsSection = () => {
   return (
@@ -15,10 +16,11 @@ const JoinUsSection = () => {
                 <p className="text-lg text-gray-600 mb-8 max-w-lg">
                     Discover the connections, opportunities, and resources you need to maximize your impact. Together with USI, we build a better tomorrow.
                 </p>
-                
-                <button className="py-3 px-8 bg-[#d73f38] text-white font-bold rounded-md transition-colors hover:bg-[#a9322c] shadow-lg">
+                <Link href="/about#join-usi" passHref>
+                <Button className="py-3 px-8 bg-[#d73f38] cursor-pointer text-white font-bold rounded-md transition-colors hover:bg-[#a9322c]">
                     Join Us
-                </button>
+                </Button>
+                </Link>
             </div>
             <div className="hidden lg:block lg:col-span-1">
             </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import Image from 'next/image';
 import {
   Carousel,
@@ -9,6 +8,8 @@ import {
 } from "../ui/carousel";
 
 import { Card } from "../ui/card";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 // Data
 const servicesData = [
@@ -78,9 +79,11 @@ const OurService = () => {
                     <h4 className="text-xl font-semibold mb-3 text-gray-800">
                       {service.title}
                     </h4>
-                    <button className="w-full py-2 bg-[#d73f38] text-white font-bold rounded-md transition-colors hover:bg-[#a9322c]">
-                      Detail
-                    </button>
+                    <Link href="/service">
+                      <Button className="w-full py-2 bg-[#d73f38] cursor-pointer text-white font-bold rounded-md transition-colors hover:bg-[#a9322c]">
+                          Detail
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CarouselItem>

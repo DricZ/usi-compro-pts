@@ -1,6 +1,3 @@
-// components/home/TestimonialSection.tsx
-
-import React from "react";
 import {
   Carousel,
   CarouselContent,
