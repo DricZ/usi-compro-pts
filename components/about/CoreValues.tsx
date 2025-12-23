@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import CoreValueCard from './CoreValueCard';
+import { motion } from 'framer-motion';
 
 // Data
 const coreValuesData = [
@@ -9,25 +12,37 @@ const coreValuesData = [
     { title: "Customer Focused", description: "We prioritize customer satisfaction", iconPath: "/customer.svg" },
 ];
 
-
 const CoreValues = () => {
     return (
-        <section className="py-20 px-4 sm:px-8 bg-[#f5f6f8]">
+        <section className="py-20 px-4 sm:px-8 bg-[#f5f6f8] overflow-hidden">
             <div className="max-w-7xl mx-auto text-center">
-                <h2 className="text-4xl font-extrabold text-[#282a53] mb-16">
+                <motion.h2 
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-4xl font-extrabold text-[#282a53] mb-16"
+                >
                     Core Values
-                </h2>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                </motion.h2>
+
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {coreValuesData.map((value, index) => (
-                        <CoreValueCard 
+                        <motion.div
                             key={index}
-                            title={value.title}
-                            description={value.description}
-                            iconPath={value.iconPath}
-                        />
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                            <CoreValueCard 
+                                title={value.title}
+                                description={value.description}
+                                iconPath={value.iconPath}
+                            />
+                        </motion.div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

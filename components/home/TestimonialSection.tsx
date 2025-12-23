@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -5,10 +8,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-
 import { Card } from "../ui/card";
 
-// Ddata
+// Data
 const testimonialsData = [
   {
     id: 1,
@@ -38,18 +40,29 @@ const testimonialsData = [
 
 const TestimonialSection = () => {
   return (
-    <section className="py-20 px-4 sm:px-8 bg-gray-50">
-      <div className="text-center mb-12">
+    <section className="py-20 px-4 sm:px-8 bg-gray-50 overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
         <h3 className="font-heading text-4xl font-extrabold text-gray-800 mb-2">
           What Our Client Are Saying
         </h3>
         <p className="text-gray-600">
           Driving success together with integrity and commitment.
         </p>
-      </div>
+      </motion.div>
       
-      {/* Kontainer Carousel */}
-      <div className="flex justify-center w-full">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="flex justify-center w-full"
+      >
         <Carousel
           opts={{
             align: "start",
@@ -59,10 +72,9 @@ const TestimonialSection = () => {
         >
           <CarouselContent className="-ml-4">
             {testimonialsData.map((testimonial) => (
-              <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 p-4 lg:basis-1/3">
+              <CarouselItem key={testimonial.id} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3 p-4">
                 
-                {/* Card */}
-                <Card className="h-full flex flex-col p-0 overflow-hidden shadow-md">
+                <Card className="h-full flex flex-col p-0 overflow-hidden shadow-md border-none">
                     <div className="p-6 bg-white grow">
                         <div className="text-5xl font-serif font-extrabold text-blue-800 mb-1 leading-none">
                             “
@@ -86,7 +98,7 @@ const TestimonialSection = () => {
               <CarouselNext className="relative top-auto right-auto ml-4" />
           </div>
         </Carousel>
-      </div>
+      </motion.div>
     </section>
   );
 };

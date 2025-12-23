@@ -1,5 +1,3 @@
-// components/services/ServiceCard.tsx
-
 "use client"
 
 import React from 'react';
