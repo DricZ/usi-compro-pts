@@ -5,6 +5,7 @@ import {
   FileText,
   Monitor,
   Warehouse,
+  Anchor,
 } from "lucide-react";
 import React from "react";
 
@@ -38,14 +39,14 @@ export const servicesData: Service[] = [
   },
   {
     id: 3,
-    title: "Sheet Management",
+    title: "Ship Management",
     description:
-      "Comprehensive digital logging and documentation for every cargo movement.",
-    Icon: FileText,
-    imageUrl: "/sheetmanagement.png",
+      "Full-scale technical and operational management to ensure vessel seaworthiness and efficiency.",
+    Icon: Anchor,
+    imageUrl: "/shipmanagement.png",
     modalDetail:
-      "Ensuring every voyage is backed by precise and accessible data. Our Sheet Management provides a centralized system for real-time cargo logs, delivery receipts, and compliance documentation. We offer clients transparent access to digital reports and voyage summaries, ensuring every shipment is handled with high accountability and follows the latest maritime administration standards.",
-  },
+      "We provide end-to-end ship management services, focusing on technical maintenance, crew management, and operational excellence. Our team ensures every vessel meets international maritime safety standards and environmental regulations (MARPOL). From routine dry-docking coordination to daily vessel performance monitoring, we optimize ship availability and minimize downtime, ensuring reliable transportation for every cargo we carry.",
+},
   {
     id: 4,
     title: "Custom Contract Arrangement",

@@ -8,7 +8,7 @@ const Footer = () => {
     const services = [
         "Petroleum & Petrochemicals",
         "Palm Products",
-        "Sheet Management",
+        "Ship Management",
         "Custom Contract Arrangement",
         "Real Time Cargo Monitoring",
         "VHS Handling",

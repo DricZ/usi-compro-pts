@@ -30,9 +30,9 @@ const servicesData = [
     alt: "Real Time Cargo Monitoring and Security",
   },
   { 
-    title: "Sheet Management", 
-    image: "/sheetmanagement.png",
-    alt: "Sheet Management Handling",
+    title: "Ship Management", 
+    image: "/shipmanagement.png",
+    alt: "Ship Management Handling",
   },
   { 
     title: "Custom Contract Arrangement", 
