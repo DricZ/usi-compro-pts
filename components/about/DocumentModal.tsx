@@ -1,16 +1,9 @@
 "use client"
 
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogClose, 
-  DialogTitle, 
-  DialogDescription
-} from "@/components/ui/dialog"
 import Image from "next/image"
-import React from "react"
+import React, { useState } from "react"
 import { X } from "lucide-react" 
+import { motion, AnimatePresence } from "framer-motion"
 
 interface DocumentModalProps {
     triggerButton: React.ReactNode; 
@@ -19,42 +12,52 @@ interface DocumentModalProps {
 }
 
 const DocumentModal: React.FC<DocumentModalProps> = ({ triggerButton, docTitle, docImage }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <>
+      <div onClick={() => setIsOpen(true)} className="cursor-pointer">
         {triggerButton}
-      </DialogTrigger>
+      </div>
       
-      <DialogContent className="sm:max-w-4xl p-0 border-none bg-transparent shadow-none">
-        <DialogTitle className="sr-only">{docTitle} Preview</DialogTitle>
-        <DialogDescription className="sr-only">Document preview opened successfully.</DialogDescription>
-
-        {/* konten */}
-        <div className="relative w-full h-[85vh] md:h-[90vh]">
-            <Image
-                src={docImage}
-                alt={docTitle}
-                layout="fill"
-                objectFit="contain" 
-                priority
-                className="rounded-2xl"
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-60 flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="absolute inset-0 bg-[#282a53]/40 backdrop-blur-md"
             />
-
-            {/* close btn */}
-            <DialogClose 
-                className="absolute top-1 right-1 md:top-5 md:-right-5 z-50 
-                           w-12 h-12 md:w-12 md:h-12 rounded-full 
-                           bg-[#d73f38] text-white 
-                           flex items-center justify-center 
-                           shadow-2xl opacity-100 transition-opacity hover:opacity-90
-                           data-[state=open]:bg-[#d73f38] data-[state=open]:text-white"
+            
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }} 
+              animate={{ scale: 1, opacity: 1, y: 0 }} 
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-4xl h-[85vh] md:h-[90vh] z-10 outline-none flex items-center justify-center"
             >
-                <X className="h-8 w-8 stroke-2" />
-            </DialogClose>
-        </div>
-        
-      </DialogContent>
-    </Dialog>
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="absolute -top-2 -right-2 md:top-5 md:-right-8 p-3 bg-white rounded-full text-gray-500 hover:bg-red-50 hover:text-red-500 z-50 transition-all shadow-xl outline-none"
+              >
+                <X size={24} />
+              </button>
+
+              <div className="relative w-full h-full">
+                  <Image
+                      src={docImage}
+                      alt={docTitle}
+                      fill
+                      className="object-contain rounded-2xl"
+                      priority
+                  />
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 
